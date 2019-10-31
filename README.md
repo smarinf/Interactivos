@@ -5,4 +5,4 @@
 ## Monografia 
 [Cybernetic Serendipity](presentacio_cybrnetic.pdf)
 ## Cartell retrats classe
-[cartell classe]()
+[cartell classe](cartell_retrats_classe2.pdf)
