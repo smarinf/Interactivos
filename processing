@@ -1,0 +1,277 @@
+//1 dibuix-esbosoos de sistema grafic. 
+//2 passar els elements del dibuix a programacio basica: linea, cuadrat (en un skets)
+//3 pshape (en altre skets)
+//4 exportar
+//5 proves impreses
+
+
+
+--- Sketch 1: llistes de figures---
+
+  void setup(){
+    size(600,600);
+  }
+  void draw(){
+  background(255);
+  cuadrats();
+  creus();
+  cercles();
+  triangles();
+  rallesro();
+  RALLES();
+  }
+  void cuadrats(){
+  rect (100, 100, 50, 50);
+  rect (250,300,50,50);
+  rect (50,450,50,50);
+  rect (400,200,50,50);
+  rect (500,500,50,50);
+  rect (300,50,50,50);
+  }
+  
+ void creus(){
+  line (0,0,50,50);
+  line (50,0,0,50);
+  
+  line (100,200,200,300);
+  line (200,200,100,300);
+  
+  line (350,150,400,200);
+  line (400,150,350,200);
+  
+  line (250,400,300,450);
+  line (300,400,250,450);
+  
+  line (500,250,600,350);
+  line (600,250,500,350);
+  
+  line (400,550,450,600);
+  line (450,550,400,600);
+  }
+  
+  void cercles(){
+  ellipse(250,50,25,25);
+  ellipse(450,150,100,100);
+  ellipse(312.5,287.5,25,25);
+  ellipse(50,350,100,100);
+  ellipse(175,525,50,50);
+  ellipse(525,475,50,50);
+  }
+  
+  void triangles(){
+  stroke(1);
+  noFill();
+  triangle(0,200,100,200,0,300);
+  triangle(100,500,200,400,200,500);
+  triangle(200,100,200,200,300,200);
+  triangle(300,300,400,300,400,400);
+  triangle(400,400,500,500,400,500);
+  triangle(500,0,600,0,500,100); 
+  }
+  
+  void rallesro(){
+  stroke(1);
+  noFill();
+  line(25,500,25,600);
+  line(75,500,75,600);
+  
+   line(100,25,200,25);
+  line(100,75,200,75);
+  
+  line(200,250,250,300);
+  line(250,200,300,250);
+  
+  line(300,550,350,500);
+  line(350,600,400,550);
+  
+  line(425,300,425,400);
+  line(475,300,475,400);
+  
+  line(500,125,600,125);
+  line(500,175,600,175);
+  }
+  
+  void RALLES(){
+    line(10,100,10,200);
+  }
+  
+  
+  
+   ---Sketch 2: Pshape---
+
+float ample=100;
+float alt=100;
+PShape[] m=new PShape[24];
+PShape[] mx=new PShape[34];
+
+/*jessicawalsh*/
+/*tonos verds
+color[] paleta={color(93,131,64),color(105,170,57),color(159,240,99),color(169,234,166),color(97,227,0),color(159,155,88)};*/
+
+/*tonos blaus
+color[] paleta={color(10,255,237),color(44,183,159),color(144,228,237),color(34,111,118),color(43,203,173),color(39,108,142)};*/
+
+/*tonos rojos
+color[] paleta={color(112,30,0),color(189,57,9),color(232,58,0),color(255,3,3),color(203,35,35),color(206,21,0)};*/
+
+/*tonos grocs
+color[] paleta={color(255,247,3)};*/
+
+/*tono turquesa
+color[] paleta={color(51,159,167)};*/
+
+/*tono roig*/
+color[] paleta={color(229,57,0)};
+
+void setup() {
+  frameRate(1);
+  size(600, 600);
+  
+  
+  
+  noStroke();
+  fill(paleta[0]);
+  m[0]=createShape(RECT, 0, 0, ample/2, alt/2);
+  m[1]=createShape(RECT, ample/2, 0, ample/2, alt/2);
+  m[2]=createShape(RECT, 0, alt/2, ample/2, alt/2);
+  m[3]=createShape(RECT, ample/2, alt/2, ample/2, alt/2);
+  
+  noFill();
+  stroke(paleta[0]);
+  strokeWeight(10);
+  m[4]=createShape(ELLIPSE, ample/2, alt/2, ample, alt);
+  m[5]=createShape(ELLIPSE, ample/4, alt/4, ample/2, alt/2);
+  m[6]=createShape(ELLIPSE, ample/4+ample/2, alt/4, ample/2, alt/2);
+  m[7]=createShape(ELLIPSE, ample/4, alt/4, ample/2, alt/2);
+  m[8]=createShape(ELLIPSE, ample/4+ample/2, alt/4+alt/2, ample/2, alt/2);
+  
+  noStroke();
+  fill(paleta[0]);
+  m[9]=createShape(TRIANGLE, ample, 0, 0, alt, ample, alt);
+  m[10]=createShape(TRIANGLE, 0, alt, 0, 0, ample, 0);
+  m[11]=createShape(TRIANGLE, 0, 0, ample, 0, ample, alt);
+  m[12]=createShape(TRIANGLE, 0, 0, 0, alt, ample, alt);
+
+  stroke(paleta[0]);
+  strokeWeight(5);
+        /*he de crear una llista apart, en els diferents component del grup,  per a fer els grups*/
+        /*CREUS*/
+        mx[0]=createShape(LINE, 0, 0, ample, alt);
+        mx[1]=createShape(LINE, ample, 0, 0, alt);
+  m[13]=createShape(GROUP);
+  m[13].addChild(mx[0]);
+  m[13].addChild(mx[1]);
+  
+        mx[2]=createShape(LINE,ample/2,0,0,alt/2);
+        mx[3]=createShape(LINE,0,0,ample/2,alt/2);
+  m[14]=createShape(GROUP);
+  m[14].addChild(mx[2]);
+  m[14].addChild(mx[3]);
+  
+        mx[4]=createShape(LINE,ample/2,0,ample,alt/2);
+        mx[5]=createShape(LINE,ample,0,ample/2,alt/2);
+  m[15]=createShape(GROUP);
+  m[15].addChild(mx[4]);
+  m[15].addChild(mx[5]);
+  
+        mx[6]=createShape(LINE,0,alt/2,ample/2,alt);
+        mx[7]=createShape(LINE,ample/2,alt/2,0,alt);
+  m[16]=createShape(GROUP);
+  m[16].addChild(mx[6]);
+  m[16].addChild(mx[7]);
+  
+        mx[8]=createShape(LINE,ample/2,alt/2,ample,alt);
+        mx[9]=createShape(LINE,ample,alt/2,ample/2,alt);
+  m[17]=createShape(GROUP);
+  m[17].addChild(mx[8]);
+  m[17].addChild(mx[9]);
+  
+  
+        /*2 RAYES PARALELES*/
+  stroke(paleta[0]);
+  strokeWeight (2);
+        mx[10]=createShape(LINE,0,ample/4,ample,alt/4);
+        mx[11]=createShape(LINE,0,ample/3,ample,alt/3);
+  m[18]=createShape(GROUP);
+  m[18].addChild(mx[10]);
+  m[18].addChild(mx[11]);
+  
+        mx[12]=createShape(LINE,ample/4,0,ample/4,alt);
+        mx[13]=createShape(LINE,ample/3,0,ample/3,alt);
+  m[19]=createShape(GROUP);
+  m[19].addChild(mx[12]);
+  m[19].addChild(mx[13]);
+  
+        mx[14]=createShape(LINE,0,alt/2,ample/2,alt);
+        mx[15]=createShape(LINE,ample/2,0,ample,alt/2);
+  m[20]=createShape(GROUP);
+  m[20].addChild(mx[14]);
+  m[20].addChild(mx[15]);
+  
+        mx[16]=createShape(LINE,ample/2,0,0,alt/2);
+        mx[17]=createShape(LINE,ample,alt/2,ample/2,alt);
+  m[21]=createShape(GROUP);
+  m[21].addChild(mx[14]);
+  m[21].addChild(mx[15]);
+  
+  stroke(paleta[0]);
+  strokeWeight(1);
+        /*varies lines 22-23*/
+        mx[18]=createShape(LINE,0,0,0,alt);
+        mx[19]=createShape(LINE,ample/8,0,ample/8,alt);
+        mx[20]=createShape(LINE,ample/8*2,0,ample/8*2,alt);
+        mx[21]=createShape(LINE,ample/8*3,0,ample/8*3,alt);
+        mx[22]=createShape(LINE,ample/8*4,0,ample/8*4,alt);
+        mx[23]=createShape(LINE,ample/8*5,0,ample/8*5,alt);
+        mx[24]=createShape(LINE,ample/8*6,0,ample/8*6,alt);
+        mx[25]=createShape(LINE,ample/8*7,0,ample/8*7,alt);
+  m[22]=createShape(GROUP);
+  m[22].addChild(mx[18]);
+  m[22].addChild(mx[19]);
+  m[22].addChild(mx[20]);
+  m[22].addChild(mx[21]);
+  m[22].addChild(mx[22]);
+  m[22].addChild(mx[23]);
+  m[22].addChild(mx[24]);
+  m[22].addChild(mx[25]);
+  
+        mx[26]=createShape(LINE,0,0,0,alt);
+        mx[27]=createShape(LINE,0,alt/8,ample,alt/8);
+        mx[28]=createShape(LINE,0,alt/8*2,ample,alt/8*2);
+        mx[29]=createShape(LINE,0,alt/8*3,ample,alt/8*3);
+        mx[30]=createShape(LINE,0,alt/8*4,ample,alt/8*4);
+        mx[31]=createShape(LINE,0,alt/8*5,ample,alt/8*5);
+        mx[32]=createShape(LINE,0,alt/8*6,ample,alt/8*6);
+        mx[33]=createShape(LINE,0,alt/8*7,ample,alt/8*7);
+  m[23]=createShape(GROUP);
+  m[23].addChild(mx[26]);
+  m[23].addChild(mx[27]);
+  m[23].addChild(mx[28]);
+  m[23].addChild(mx[29]);
+  m[23].addChild(mx[30]);
+  m[23].addChild(mx[31]);
+  m[23].addChild(mx[32]);
+  m[23].addChild(mx[33]);
+  
+}
+
+void draw() {
+  /* fondo morat// background(106,0,112);*/
+  /* fondo taronja// background(255,162,10);*/
+  /* fondo turquesa// background(43,189,160);*/
+  /* fondo fuccia//  background (240,7,124);*/
+  /* fondo pistacho// background(227,247,7);*/
+  /* fondo verd// background(27,242,136);*/
+  /* fondo blanc//*/ background(255);
+  for (float x=0; x<width; x=x+ample) {
+    for (float y=0; y<height; y=y+alt) {
+      pushMatrix();
+      translate(x, y);
+      shape(m[int(random(m.length))], 0, 0);
+      
+      popMatrix();
+      /*println("ja esta");
+      exit();*/
+    }
+  }
+}
